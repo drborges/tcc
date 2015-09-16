@@ -1,0 +1,138 @@
+% Este documento utiliza latex classes disponibilizadas
+% no seguinte endereço: http://www.inf.ufrgs.br/utug
+
+\documentclass[tc]{iiufrgs}
+
+\usepackage[brazilian]{babel}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{tabularx}
+\usepackage[utf8]{inputenc}
+
+\title{Data Stream Processing API for Golang}
+\author{Borges}{Diego}
+\advisor[Prof.~Dr.]{Pimenta}{Marcelo}
+\date{dezembro}{2015}
+\course{Curso de Ciência da Computação}
+\location{Porto Alegre}{RS}
+
+\renewcommand{\nominata}{
+UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL
+\par Reitor: Prof.~Dr.~Carlos Alexandre Netto
+\par Vice-Reitor: Prof.~Dr.~Rui Vicente Oppermann
+\par Pró-Reitor de Graduação: Prof.~Dr.~Sérgio Roberto Kieling
+\par Diretor do Instituto de Informática: Prof.~Dr.~ Luís da Cunha Lamb
+\par Coordenador do Curso de Ciência da Computação: Prof.~Dr.~Raul Fernando Weber
+\par Bibliotecária-Chefe do Instituto de Informática: Beatriz Regina Bastos Haro
+}
+
+\keyword{Stream}
+\keyword{Pipeline}
+\keyword{Golang}
+\keyword{API}
+\keyword{Parallel}
+\keyword{Concurrency}
+
+%
+% -----------------------------------------------------------------------------
+%
+
+\begin{document}
+
+\maketitle
+
+\clearpage
+\begin{flushright}
+\mbox{}\vfill
+{\sffamily\itshape
+``You, me, or nobody is gonna hit as hard as life. \\
+  But it ain't about how hard you hit. \\
+  It's about how hard you can get hit and keep moving forward. \\
+  How much you can take and keep moving forward. \\
+  That's how winning is done!''\\}
+--- \textsc{Rocky Balboa}
+\end{flushright}
+
+% agradecimentos
+\chapter*{Agradecimentos} % (fold)
+\label{cha:agradecimentos}
+Agradeço a todas as pessoas que me estimularam o bastante para realizar este trabalho:
+
+Aos meus pais e a toda minha família, que me apoiou, cobrou, deu toda a estrutura que precisei para poder estudar durante todos esses anos e, principalmente, serviu de inspiração e modelo para que eu pudesse chegar onde cheguei hoje.
+
+A Bianca, que tantas vezes evitou que eu fizesse coisas menos importantes em detrimento deste trabalho.
+
+Ao Dr. Marcelo Pimenta, por me guiar por esta caminhada que apesar de longa está sendo finalmente concluida.
+
+%
+% -----------------------------------------------------------------------------
+%
+
+\tableofcontents
+
+% lista de abreviaturas e siglas (o parametro deve ser a abreviatura mais longa):
+\begin{listofabbrv}{UFRGS}
+        \item[HTTP] Hypertext Transfer Protocol
+        \item[REST] Representational State Transfer
+        \item[API] Application Programming Interface
+        \item[JSON] JavaScript Object Notation
+        \item[TDD] Test-Driven Development
+        \item[GPS] Global Positioning System
+        \item[URI] Uniform Resource Identifier
+\end{listofabbrv}
+
+\listoffigures
+\listoftables
+
+\begin{abstract}
+Perpetual sincerity out suspected necessary one but provision satisfied. Respect nothing use set waiting pursuit nay you looking. If on prevailed concluded ye abilities. Address say you new but minuter greater. Do denied agreed in innate. Can and middletons thoroughly themselves him. Tolerably sportsmen belonging in september no am immediate newspaper. Theirs expect dinner it pretty indeed having no of. Principle september she conveying did eat may extensive.
+
+Increasing impression interested expression he my at. Respect invited request charmed me warrant to. Expect no pretty as do though so genius afraid cousin. Girl when of ye snug poor draw. Mistake totally of in chiefly. Justice visitor him entered for. Continue delicate as unlocked entirely mr relation diverted in. Known not end fully being style house. An whom down kept lain name so at easy.
+
+By in no ecstatic wondered disposal my speaking. Direct wholly valley or uneasy it at really. Sir wish like said dull and need make. Sportsman one bed departure rapturous situation disposing his. Off say yet ample ten ought hence. Depending in newspaper an september do existence strangers. Total great saw water had mirth happy new. Projecting pianoforte no of partiality is on. Nay besides joy society him totally six.
+\end{abstract}
+
+\begin{englishabstract}{Data Stream Processing API for Golang}{Golang, Stream, API, Pipeline, Concurrency}
+Perpetual sincerity out suspected necessary one but provision satisfied. Respect nothing use set waiting pursuit nay you looking. If on prevailed concluded ye abilities. Address say you new but minuter greater. Do denied agreed in innate. Can and middletons thoroughly themselves him. Tolerably sportsmen belonging in september no am immediate newspaper. Theirs expect dinner it pretty indeed having no of. Principle september she conveying did eat may extensive.
+
+Increasing impression interested expression he my at. Respect invited request charmed me warrant to. Expect no pretty as do though so genius afraid cousin. Girl when of ye snug poor draw. Mistake totally of in chiefly. Justice visitor him entered for. Continue delicate as unlocked entirely mr relation diverted in. Known not end fully being style house. An whom down kept lain name so at easy.
+
+By in no ecstatic wondered disposal my speaking. Direct wholly valley or uneasy it at really. Sir wish like said dull and need make. Sportsman one bed departure rapturous situation disposing his. Off say yet ample ten ought hence. Depending in newspaper an september do existence strangers. Total great saw water had mirth happy new. Projecting pianoforte no of partiality is on. Nay besides joy society him totally six.
+\end{englishabstract}
+
+\onehalfspacing
+
+\include{chapters/introduction}
+
+\include{chapters/go_concurrency_model}
+
+% \include{RiversArchitecture}
+
+% \include{Producers}
+
+% \include{Consumers}
+
+% \include{Transformers}
+
+% \include{Combiners}
+
+% \include{Dispatchers}
+
+% \include{GoingParallel}
+
+% \include{Debugging}
+
+% \include{Conclusion}
+
+%
+% -----------------------------------------------------------------------------
+%
+
+\bibliographystyle{abnt}
+\bibliography{chapters/references}
+
+\end{document}
