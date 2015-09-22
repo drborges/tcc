@@ -14,10 +14,15 @@
 \usepackage[utf8]{inputenc}
 
 \title{Rivers - Stream Processing API for Golang}
+
 \author{Borges}{Diego}
+
 \advisor[Prof.~Dr.]{Pimenta}{Marcelo}
+
 \date{dezembro}{2015}
+
 \course{Curso de Ciência da Computação}
+
 \location{Porto Alegre}{RS}
 
 \renewcommand{\nominata}{
@@ -30,12 +35,12 @@ UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL
 \par Bibliotecária-Chefe do Instituto de Informática: Beatriz Regina Bastos Haro
 }
 
-\keyword{Stream}
-\keyword{Pipeline}
-\keyword{Golang}
 \keyword{API}
-\keyword{Parallel}
-\keyword{Concurrency}
+\keyword{rivers}
+\keyword{golang}
+\keyword{stream}
+\keyword{pipeline}
+\keyword{concurrency}
 
 %
 % -----------------------------------------------------------------------------
@@ -54,9 +59,12 @@ UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL
 \end{flushright}
 
 % agradecimentos
-\chapter*{Agradecimentos} % (fold)
+\chapter*{Agradecimentos}
 \label{cha:thanks}
 TODO ...
+TODO ...
+TODO ...
+
 %
 % -----------------------------------------------------------------------------
 %
@@ -70,18 +78,33 @@ TODO ...
 \end{listofabbrv}
 
 \listoffigures
+
 \listoftables
 
 \begin{abstract}
+TODO translation...
+During the past few years hardware power has evolved drastically and today's systems can leverage multi-core CPUs in order to perform concurrent tasks more effectively.
+Golang takes advantage of this hardware power by implementing a simple message passing concurrency model though extremely powerful using as building blocks channels and what is known as goroutines.
+Rivers is a framework for data stream processing built on top of Golang concurrency primitives along with well known patterns such as the Producer-Consumer and the Golang pipeline patterns.
+The main goal of this work is to provide a fluent API for building complex data stream pipelines in Golang applying concepts from functional programming.
+\end{abstract}
+
+\begin{englishabstract}{Rivers - Stream Processing API for Golang}{API, rivers, golang, stream, pipeline, concurrency}
+During the past few years hardware power has evolved drastically and today's systems can leverage multi-core CPUs in order to perform concurrent tasks more effectively.
+Golang takes advantage of this hardware power by implementing a simple message passing concurrency model though extremely powerful using as building blocks channels and what is known as goroutines.
+Rivers is a framework for data stream processing built on top of Golang concurrency primitives along with well known patterns such as the Producer-Consumer and the Golang pipeline patterns.
+The main goal of this work is to provide a fluent API for building complex data stream pipelines in Golang applying concepts from functional programming.
 \end{englishabstract}
 
 \onehalfspacing
 
 \include{chapters/introduction}
 
-\include{chapters/go_concurrency_model}
+\include{chapters/state_of_art}
 
-\include{chapters/rivers_architecture}
+\include{chapters/related_work}
+
+\include{chapters/rivers}
 
 \include{chapters/conclusion}
 

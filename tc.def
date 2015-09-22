@@ -1,0 +1,4 @@
+\ProvidesFile{tc.def}[2003/02/03 Trabalho de Conclusao]
+%\newcommand{\titlepagespecificinfo}{\tcspecificinfo}
+\newcommand{\titlepagespecificinfo}{Trabalho de Gradua{\c{c}}{\~a}o}
+\def\@cipspecificinfo{\tcname}

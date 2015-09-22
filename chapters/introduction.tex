@@ -6,4 +6,14 @@ TODO ...
 \section{Objetivos}
 \label{sec:objectives}
 
-TODO ...
+\begin{description}
+  \item[Simplicity] \hfill \\
+  Simple though powerful API for processing streams of data based on functional programming building blocks (map, filter, reduce, etc...)
+  \item[Robustness] \hfill \\
+  Handle the complexity related to the coordination and synchronization of concurrent programs (managing goroutines, communication with channels...)
+  \item[Extensibility] \hfill \\
+  API should be extensible following the philosophy of bring your own Producer/Transformer/Consumer
+  \item[Recoverability] \hfill \\
+  Provide reasonable error recovering mechanism: This is important specially when dealing with a great number of concurrent execution threads
+  Also relates to the cancellation problem: Make sure the program finishes upon either success or failure releasing resources\ldots
+\end{description}
