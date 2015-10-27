@@ -455,20 +455,20 @@ FUNCTION {format.address_c}
         { pop$ "" "there is no city corresponding to " journal * warning$ }
         { skip$ }
       if$
-      journal "Boletim da Sociedade Brasileira de Matemática" =
+      journal "Boletim da Sociedade Brasileira de Matemï¿½tica" =
         { pop$ "" "there is no city corresponding to " journal * warning$ }
         { skip$ }
       if$
       journal "Boletin de la Academia Nacional de Ciencias" =
-        { pop$ "Córdoba" }
+        { pop$ "Cï¿½rdoba" }
         { skip$ }
       if$
       journal "Brazilian Journal of Medical and Biological Research" =
-        { pop$ "Ribeirão Preto" }
+        { pop$ "Ribeirï¿½o Preto" }
         { skip$ }
       if$
       journal "Brazilian Journal of Physics" =
-        { pop$ "São Paulo" }
+        { pop$ "Sï¿½o Paulo" }
         { skip$ }
       if$
       journal "British Journal of Educational Psychology" =
@@ -482,8 +482,8 @@ FUNCTION {format.address_c}
 }
 
 FUNCTION {format.address_d}
-{     journal "Caderno Catarinense de Ensino de Física" =
-        { pop$ "Florianópolis" }
+{     journal "Caderno Catarinense de Ensino de Fï¿½sica" =
+        { pop$ "Florianï¿½polis" }
         { skip$ }
       if$
       journal "Chaos Solitons Fractals" =
@@ -494,7 +494,7 @@ FUNCTION {format.address_d}
         { pop$ "Amsterdam" }
         { skip$ }
       if$
-      journal "Ciência Hoje" =
+      journal "Ciï¿½ncia Hoje" =
         { pop$ "Rio de Janeiro" }
         { skip$ }
       if$
@@ -541,15 +541,15 @@ FUNCTION {format.address_e}
         { pop$ "Washington" }
         { skip$ }
       if$
-      journal "Ensaio: pesquisa em educação em ciências" =
+      journal "Ensaio: pesquisa em educaï¿½ï¿½o em ciï¿½ncias" =
         { pop$ "Belo Horizonte" }
         { skip$ }
       if$
-      journal "Enseñanza de las Ciencias" =
+      journal "Enseï¿½anza de las Ciencias" =
         { pop$ "Barcelona" }
         { skip$ }
       if$
-      journal "Epistéme	Epistéme" =
+      journal "Epistï¿½me	Epistï¿½me" =
         { pop$ "Porto Alegre" }
         { skip$ }
       if$
@@ -620,14 +620,14 @@ FUNCTION {format.address_f}
         { pop$ "London" }
         { skip$ }
       if$
-      journal "Investigación en la Escuela" =
+      journal "Investigaciï¿½n en la Escuela" =
         { pop$ "Seville" }
         { skip$ }
       if$
 }
 
 FUNCTION {format.address_g}
-{     journal "Investigações em Ensino de Ciências" =		
+{     journal "Investigaï¿½ï¿½es em Ensino de Ciï¿½ncias" =		
         { pop$ "" "there is no city corresponding to " journal * warning$ }
         { skip$ }
       if$
@@ -1026,8 +1026,8 @@ FUNCTION {format.address_q}
         { pop$ "" "there is no city corresponding to " journal * warning$ }
         { skip$ }
       if$
-      journal "Química Nova" =
-        { pop$ "São Paulo" }
+      journal "Quï¿½mica Nova" =
+        { pop$ "Sï¿½o Paulo" }
         { skip$ }
       if$
       journal "Radiation Effects and Defects Solids" =
@@ -1054,30 +1054,30 @@ FUNCTION {format.address_q}
 	}
         { skip$ }
       if$
-      journal "Revista Brasileira de Aplicações em Vácuo" =
+      journal "Revista Brasileira de Aplicaï¿½ï¿½es em Vï¿½cuo" =
         { pop$ "" "there is no city corresponding to " journal * warning$ }
         { skip$ }
       if$
-      journal "Revista Brasileira de Ensino de Física" =
-        { pop$ "São Paulo" }
+      journal "Revista Brasileira de Ensino de Fï¿½sica" =
+        { pop$ "Sï¿½o Paulo" }
         { skip$ }
       if$
-      journal "Revista de Administração Pública" =
+      journal "Revista de Administraï¿½ï¿½o Pï¿½blica" =
         { pop$ "" "there is no city corresponding to " journal * warning$ }
         { skip$ }
       if$
 }
 
 FUNCTION {format.address_r}
-{     journal "Revista de Enseñanza de la Física" =
+{     journal "Revista de Enseï¿½anza de la Fï¿½sica" =
         { pop$ "Rosario" }
         { skip$ }
       if$
-      journal "Revista de Ensino de Física" =
-        { pop$ "São Paulo" }
+      journal "Revista de Ensino de Fï¿½sica" =
+        { pop$ "Sï¿½o Paulo" }
         { skip$ }
       if$
-      journal "Revista Mexicana de Astronomía y Astrofísica" =
+      journal "Revista Mexicana de Astronomï¿½a y Astrofï¿½sica" =
         { pop$ "Mexico" }
         { skip$ }
       if$

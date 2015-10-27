@@ -1,19 +1,42 @@
 \chapter{Introdução}
 \label{cha:introduction}
 
-TODO ...
+\section{Motivação}
+\label{sec:motivation}
+
+Nos últimos anos a necessidade de se processar grandes volumes de dados de maneira eficiente e flexível tem aumentado drasticamente. Isso se deve ao fato de que sistemas computacionais estão cada vez mais complexos e frequentemente envolvem a colaboração entre diversos outros sistemas que atuam como fonte ou consumidores de dados. O fato de que as pessoas estão cada vez mais conectadas aos seus dispositivos móveis coletando e produzindo dados a todo momento é um dos indícios dessa crescente complexidade que tende a continuar à medida que novas tecnologias são introduzidas como por exemplo Iternet of Things \cite{blog:iot:council}, aumentando ainda mais a quantidade de dados produzidos e com isso a necessidade de se processar e comunicar estes dados entre os diferentes sistemas que compõem o que conhecemos como Internet.
+
+Dados são gerados assincronamente por diversas fontes como por exemplo aplicativos móveis, sensores, sistemas web e fluem de um sistema à outro através de mecanismos de comunicação tais como APIs e Push Notifications \cite{docs:apple:push_notification} passando por transformações, filtros e agregações para se adequar ao contexto e as necessidades de cada sistema. Todo este processamento quando aplicado a grandes quantidades de dados em um contexto de sistemas distribuídos torna-se surpreendentemente desafiador. Várias soluções foram propostas nos últimos anos para abordar o processamento assíncrono de grandes volume de dados dentre elas o processamento de streams, solução explorada por este trabalho no contexto da linguagem de programação Go da google.
+
+A decisão pelo uso da linguagem de programação Go se deve à alguns fatores. Go introduz um modelo de concorrência poderoso e simples baseado em troca de mensagens através da colaboração entre channels \ref{subsec:channels} e goroutines \ref{subsec:goroutines} permitindo um único programa executar centenas de milhares de fluxos concorrentes de execução com o mínimo de overhead, o que a torna uma linguagem extremamente atraente no contexto de processamento de streams. Go tem ganhado notável adoção na comunidade de desenvolvedores tanto pela simplicidade da linguagem que permite com que soluções elegantes sejam empregadas à problemas complexos como no desenvolvimento de web servers, aplicações que fazem intenso uso de mecanismos de comunicação de rede como TCP e UDP, parsers e etc. No entanto, a linguagem não provê abstrações nativas para o processamento de streams tornando o trabalhado de um desenvolvedor não necessariamente trivial.
 
 \section{Objetivos}
 \label{sec:objectives}
 
+Este trabalho tem como principal objetivo a implementação de uma API  simples e flexível para processamento de streams através da abstração de pipelines para a linguagem de programação Go da google. A solução proposta tem como base teórica conceitos do modelo Produtor-Consumidor \cite{paper:david_kocher:producer_consumer} juntamente com conceitos de programação funcional tais como Collection Pipeline definido em \cite{article:martin_fowler:collection_pipeline}. Em sua fundação prática, a solução explora o modelo de concorrência da linguagem Go afim de usufruir ao máximo dos recursos de hardware visando atingir níveis extremos de concorrência e paralelismo.
+
+Visando o reuso de código, a API proposta disponibiliza um conjunto mínimo de abstrações para cada um dos conceitos envolvidos na criação de um pipeline e seus estágios de processamento de stream que servirão como base para a implementação de componentes mais complexos e especializados, tais como mecanismos básicos para a produção de dados de diversas fontes como por exemplo arquivos, sockets e listas e também componentes especializados em operações de transformações de dados como por exemplo Map, Reduce, Filter encontradas em outras soluções similares discutidas no capítulo \ref{cha:related_work}. Afim de adequar-se a cenários não inicialmente previstos Rivers disponibiliza mecanismos para que abstrações nativas da API possam ser estendidas com novas implementações permitindo a criação de pipelines para o processamento de qualquer tipo de dados independente de sua origem.
+
+Finalmente a API proposta seguindo conceitos de programação funcional deve permitir que estágios do pipeline possam ser combinados de maneira simples tal que dados produzidos por um estágio possam ser consumidos por um próximo estágio de maneira assíncrona e concorrente, sendo possível porém opcional a paralelização de estágios específicos afim de aumentar a eficiência de processamento de dados de um estágio em particular.
+
+\begin{flushright}
+\mbox{}\vfill
+{\sffamily\itshape
+``Any fool can write code that a computer can understand. Good programmers write code that humans can understand.''\\}
+--- \textsc{Martin Fowler, 2008}
+\end{flushright}
+
+\section{Estrutura do Texto}
+\label{sec:text_structure}
+
+Este trabalho está organizado em sete capítulos os quais abordam temas relevantes para o entendimento das decisões tomadas no processo de desenvolvimento da solução e suas motivações assim como definição de conceitos básicos utilizados como fundação do trabalho. A seguir cada capítulo é apresentado de maneira mais detalhada.
+
 \begin{description}
-  \item[Simplicity] \hfill \\
-  Simple though powerful API for processing streams of data based on functional programming building blocks (map, filter, reduce, etc...)
-  \item[Robustness] \hfill \\
-  Handle the complexity related to the coordination and synchronization of concurrent programs (managing goroutines, communication with channels...)
-  \item[Extensibility] \hfill \\
-  API should be extensible following the philosophy of bring your own Producer/Transformer/Consumer
-  \item[Recoverability] \hfill \\
-  Provide reasonable error recovering mechanism: This is important specially when dealing with a great number of concurrent execution threads
-  Also relates to the cancellation problem: Make sure the program finishes upon either success or failure releasing resources\ldots
+    \item [Capítulo~\ref{cha:introduction}] Apresenta o contexto em que o trabalho foi desenvolvido as motivações que justificam a solução proposta assim como seus objetivos.
+    \item [Capítulo~\ref{cha:foundation}] Descreve os termos e conceitos básicos utilizados como fundação do trabalho dando suporte teórico e prático para a solução proposta.
+    \item [Capítulo~\ref{cha:related_work}] Discute alguns trabalhos relacionados que serviram de base e inspiração para muitas das decisões técnicas tomadas ao longo do processo de desenvolvimento deste trabalho.
+    \item [Capítulo~\ref{cha:rivers}] Apresenta a solução proposta em detalhes assim como a arquitetura desenvolvida e seus componentes internos
+    \item [Capítulo~\ref{cha:rivers_implementation}] Descreve o processo de desenvolvimento empregado assim como as práticas utilizadas para a validação gradual de requisitos assim como a integração contínua e constante da implementação empregada.
+    \item [Capítulo~\ref{cha:applications}] Apresenta alguns casos de uso detectados ao longo do desenvolvimento assim como aplicações reais da solução em ambientes de produção juntamente como a visão de desenvolvedores que fizeram para da validação deste trabalho.
+    \item [Capítulo~\ref{cha:conclusion}] Por fim, são apresentados as conclusões, resultados e algumas considerações finais com relação a possíveis melhorias e avanços futuros.
 \end{description}

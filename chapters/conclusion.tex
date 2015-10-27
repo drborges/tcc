@@ -1,7 +1,20 @@
 \chapter{Conclusão}
 \label{cha:conclusion}
 
-TODO ...
+Rivers propões uma API simples, extensível e intuitiva para processamento de streams de dados para a linguagem Go, utilizando de construções e conceitos de programação funcional familiares a maioria dos desenvolvedores abstraindo as complexidades e detalhes de implementação relacionados ao processamento concorrente e paralelo dos dados, de maneira que o desenvolvedor passa se concentrar apenas na lógica de negócio intrínseca ao pipeline.
+
+O modelo de concorrência da linguagem Go provou-se não somente muito conveniente mas também extremamente eficiente e foi crucial para o sucesso da implementação da solução uma vez que muito da complexidade dos mecanismos de detecção de falhas, de comunicação entre os componentes do sistema via channels e gerência de recursos alocados durante a execução de grandes quantidades de fluxos de processamento concorrentes não afetaram de maneira considerável a complexidade final da solução.
+
+Por se tratar de um experimento e guiado inicialmente pelas necessidades e casos de uso da emprese Bearch Inc, a API sofreu várias alterações ao longo do desenvolvimento afim de adaptá-la a novos casos de uso, porém visando simplicidade algumas operações encontradas em APIs similares em outras plataformas não foram implementadas como por exemplo determinados tipos de operações de filtros que no entanto podem ser implementadas através da composição de outras operações disponíveis na API.
+
+\section{Análise dos Resultados}
+\label{sec:results}
+
+Ao longo do desenvolvimento muitas informações foram coletadas desde benchmarks até feedbacks de desenvolvedores utilizando o framework em outros projetos da empresa afim de avaliar a solução em termos de performance, simplicidade e flexibilidade. Os resultados dos benchmarks foram muito satisfatórios e mostraram um ganho considerável em performance ao se paralelizar estágios do pipeline além da execução concorrente de cada estágio.
+
+O design funcional da API agradou desenvolvedores pela simplicidade da solução e o fato de se poder estender a API com novos componentes implementando as interfaces definidas pelo framework possibilitou o uso de Rivers em contextos bem variados. Algumas das decisões técnicas quanto ao design da API foram guiados por feedbacks de usuários que alongo de várias conversas e experimentos ajudaram a moldar a API final desde a nomenclatura das operações até mesmo com relação a melhor solução para se paralelizar pipelines sem expor qualquer tipo de complexidade ao usuário do framework. Um ponto negativo levantado por desenvolvedores é que devido ao fato da sintaxe da linguagem Go em alguns aspectos é um pouco extensa comparado com outras soluções em outras linguagens como scala e python, é necessário escrever um pouco mais de código, porém isso pode ser contornado fornecendo implementações específicas de operações recorrentes que possam ser reusadas evitando a necessidade de se implementar a mesma funcionalidade em diferentes contextos.
 
 \section{Trabalhos Futuros}
 \label{sec:future_work}
+
+Ao longo do desenvolvimento da solução, alguns casos de uso interessantes foram detectados, propostos e discutidos como por exemplo a possibilidade de se implementar pipelines distribuídos, permitindo a execução de diferentes estágios do pipeline em um cluster de máquinas seguindo um modelo similar ao modelo MapReduce proposto por Google \cite{paper:google:map_reduce}. Apesar de ser um caso de uso muito interessante, a complexidade de implementação não justificou sua necessidade momentânea e portanto não foi considerado prioridade no desenvolvimento. Porém essa possibilidade não foi completamente descartada e fica proposta como trabalho futuro uma vez que existem necessidades reais que justificam o investimento em tal solução, especialmente nos domínios de Big Data aonde o volume de dados a serem processados é incrivelmente grande e a possibilidade de se distribuir e processar conjuntos menores destes dados em diferentes máquinas agregando seus resultados ao final é muito atraente.

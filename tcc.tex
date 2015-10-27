@@ -1,17 +1,20 @@
 % Este documento utiliza latex classes disponibilizadas
 % no seguinte endereço: http://www.inf.ufrgs.br/utug
 
-\documentclass[tc]{iiufrgs}
+\documentclass[cic,tc]{iiufrgs}
 
 \usepackage[brazilian]{babel}
 \usepackage{graphicx}
 \usepackage[T1]{fontenc}
 \usepackage{times}
+\usepackage{float}
 \usepackage{setspace}
 \usepackage{listings}
 \usepackage{color}
 \usepackage{tabularx}
 \usepackage[utf8]{inputenc}
+\usepackage[alf,abnt-emphasize=bf]{abntex2cite}	% pacote para usar citações abnt
+
 
 \title{Rivers - Stream Processing API for Golang}
 
@@ -24,6 +27,9 @@
 \course{Curso de Ciência da Computação}
 
 \location{Porto Alegre}{RS}
+
+\graphicspath{{images/}}
+\DeclareGraphicsExtensions{.png,.pdf}
 
 \renewcommand{\nominata}{
 UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL
@@ -43,8 +49,9 @@ UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL
 \keyword{concurrency}
 
 %
-% -----------------------------------------------------------------------------
+% ---------------------------------------------------------
 %
+
 
 \begin{document}
 
@@ -58,23 +65,26 @@ UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL
 --- \textsc{Rob Pike}
 \end{flushright}
 
-% agradecimentos
-\chapter*{Agradecimentos}
-\label{cha:thanks}
-TODO ...
-TODO ...
-TODO ...
+\include{chapters/thanks}
 
 %
-% -----------------------------------------------------------------------------
+% ---------------------------------------------------------
 %
 
 \tableofcontents
 
-% lista de abreviaturas e siglas (o parametro deve ser a abreviatura mais longa):
 \begin{listofabbrv}{UFRGS}
-        \item[API] Application Programming Interface
-        \item[TDD] Test-Driven Development
+    \item[API] Application Programming Interface
+    \item[CPU] Central Processing Unit
+    \item[FIFO] First In First Out
+    \item[TCP] Transmission Control Protocol
+    \item[UDP] User Datagram Protocol
+    \item[HTTP] Hypertext Transfer Protocol
+    \item[NoSQL] Non SQL
+    \item[MVP] Minimum Viable Product
+    \item[TDD] Test-Driven Development
+    \item[HTML] HyperText Markup Language
+    \item[URL] Uniform Resource Locator
 \end{listofabbrv}
 
 \listoffigures
@@ -82,37 +92,42 @@ TODO ...
 \listoftables
 
 \begin{abstract}
-TODO translation...
-During the past few years hardware power has evolved drastically and today's systems can leverage multi-core CPUs in order to perform concurrent tasks more effectively.
-Golang takes advantage of this hardware power by implementing a simple message passing concurrency model though extremely powerful using as building blocks channels and what is known as goroutines.
-Rivers is a framework for data stream processing built on top of Golang concurrency primitives along with well known patterns such as the Producer-Consumer and the Golang pipeline patterns.
-The main goal of this work is to provide a fluent API for building complex data stream pipelines in Golang applying concepts from functional programming.
+Nos últimos anos o poder computacional evoluiu drasticamente e os sistemas atuais podem beneficiar-se de CPUs com múltiplos cores para realizar concorrentemente tarefas de maneira mais eficiente.
+
+Golang tira proveito do poder computacional de hardwares modernos implementando um modelo simple porém poderoso de concorrência baseado em troca de mensagens através de channels e um formato mais barato de thread gerenciado pelo runtime conhecido como goroutines.
+
+Rivers propoem um framework para processamento de fluxo de dados utilizando o modelo de concorrência da linguagem Go como fundação e padrões bem conhecidos como Producer-Consumer e Go pipeline pattern provendo uma API fluente e extensível para criação e composição de pipelines complexos de processamento de dados aplicando conceitos de programação funcional.
 \end{abstract}
 
 \begin{englishabstract}{Rivers - Stream Processing API for Golang}{API, rivers, golang, stream, pipeline, concurrency}
 During the past few years hardware power has evolved drastically and today's systems can leverage multi-core CPUs in order to perform concurrent tasks more effectively.
-Golang takes advantage of this hardware power by implementing a simple message passing concurrency model though extremely powerful using as building blocks channels and what is known as goroutines.
-Rivers is a framework for data stream processing built on top of Golang concurrency primitives along with well known patterns such as the Producer-Consumer and the Golang pipeline patterns.
-The main goal of this work is to provide a fluent API for building complex data stream pipelines in Golang applying concepts from functional programming.
+
+Golang takes advantage of this hardware power by implementing a simple though extremely powerful concurrency model built on top of concepts such as message passing via channels and a more lightweight form of thread managed by the runtime known as goroutines.
+
+Rivers proposes a framework for data stream processing built on top of Go's concurrency model along with well known patterns such as the Producer-Consumer pattern and the Go pipeline pattern in order to provide a fluent and extensible API for building and composing complex data processing pipelines through functional programming concepts.
 \end{englishabstract}
 
 \onehalfspacing
 
 \include{chapters/introduction}
 
-\include{chapters/state_of_art}
+\include{chapters/foundation}
 
 \include{chapters/related_work}
 
-\include{chapters/rivers}
+\include{chapters/rivers_architecture}
+
+\include{chapters/rivers_implementation}
+
+\include{chapters/rivers_applications}
 
 \include{chapters/conclusion}
 
 %
-% -----------------------------------------------------------------------------
+% ---------------------------------------------------------
 %
 
-\bibliographystyle{abnt}
-\bibliography{chapters/references}
+\bibliographystyle{abntex2-alf}
+\bibliography{biblio}
 
 \end{document}
